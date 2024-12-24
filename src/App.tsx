@@ -15,20 +15,20 @@ const letters: Letter[] = [
   {
       id: 1,
       letter: "A",
-      audio: "/audio/letters/a.wav",
-      img: "/img/letters/a.jpg",
+      audio: "./audio/letters/a.wav",
+      img: "./img/letters/a.jpg",
   },
   {
       id: 2,
       letter: "B",
-      audio: "/audio/letters/b.wav",
-      img: "/img/letters/b.webp",
+      audio: "./audio/letters/b.wav",
+      img: "./img/letters/b.webp",
   },
   {
       id: 3,
       letter: "C",
-      audio: "/audio/letters/c.wav",
-      img: "/img/letters/c.webp",
+      audio: "./audio/letters/c.wav",
+      img: "./img/letters/c.webp",
   },
 ];
 
