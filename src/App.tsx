@@ -145,7 +145,7 @@ const App = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "25rem" }}>
         <h1>Alphabet Drag-and-Drop</h1>
 
         <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
