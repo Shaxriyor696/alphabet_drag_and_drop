@@ -2,6 +2,7 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import "./App.css";
 import { useMemo, useState } from "react";
+import { shuffleList } from "./utils";
 
 
 interface Letter {
@@ -11,7 +12,7 @@ interface Letter {
   img: string;
 }
 
-const letters: Letter[] = [
+const letters: Letter[] = shuffleList([
   {
       id: 1,
       letter: "A",
@@ -30,7 +31,7 @@ const letters: Letter[] = [
       audio: "./audio/letters/c.wav",
       img: "./img/letters/c.webp",
   },
-];
+]);
 
 
 interface DraggableLetterProps {
@@ -88,8 +89,8 @@ const DropTarget = ({ expectedLetter, onDrop, matchedLetter, onClick }: DropTarg
       ref={drop}
       onClick={() => onClick(expectedLetter)}
       style={{
-        height: "200px",
-        width: "200px",
+        height: "100px",
+        width: "100px",
         margin: "10px",
         border: `2px dashed ${matchedLetter ? "green" : "#000"}`,
         backgroundColor: isOver ? "#F0F8FF" : "white",
@@ -98,14 +99,14 @@ const DropTarget = ({ expectedLetter, onDrop, matchedLetter, onClick }: DropTarg
         alignItems: "center",
         justifyContent: "center",
         color: "black",
-        fontSize: "50px",
+        fontSize: "30px",
         cursor: "pointer",
       }}
     >
       <img
         src={expectedLetter.img}
         alt={expectedLetter.letter}
-        style={{ width: "150px", height: "150px", objectFit: "contain" }}
+        style={{ maxWidth: "80px", maxHeight: "80px", objectFit: "contain" }}
       />
       {matchedLetter || "?"}
     </div>
@@ -145,16 +146,16 @@ const App = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "25rem" }}>
-        <h1>Alphabet Drag-and-Drop</h1>
+      <div className="main-wrapper">
+        <h1>Alphabet</h1>
 
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+        <div className="letters">
           {unmatchedLetters.map((letter: Letter) => (
             <DraggableLetter key={letter.id} id={letter.id} letter={letter.letter} />
           ))}
         </div>
 
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className="targets">
           {letters.map((letter) => (
             <DropTarget
               key={letter.id}

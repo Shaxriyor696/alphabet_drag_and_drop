@@ -40,3 +40,26 @@
 .read-the-docs {
   color: #888;
 }
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+}
+
+.letters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 100px;
+  justify-content: space-evenly;
+}
+
+.targets {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 100px;
+  justify-content: space-evenly;
+}
